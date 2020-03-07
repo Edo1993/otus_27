@@ -87,22 +87,27 @@ Connection: keep-alive
 ETag: "5e63b16f-14"
 Accept-Ranges: bytes
 ```
+# Открыв страницу в браузере - увидим your_account/your_repo
 
-выполнение
-собрать образ
+![Img_alt](https://github.com/Edo1993/otus_27/blob/master/271.png)
 
-docker build -t ddos .
-запустить контейнер
+_________________________________________________________________________________________________________________________
 
-docker run --rm -d -p 80:80 ddos
-проверить ss/netstat, что контейнер слушает на 80 порту
+# Выполнение
 
-подключиться к докерхабу
+Dockerfile, nginx запилили, посмотреть, что локально работает. Сборка в текущей директории.
 
+```
+docker build -t webhomework .
+```
+Запустить контейнер
+
+```
+docker run --rm -d -p 80:80 webhomework
+```
+Запушить готовый образ
+```
 docker login
-задать тег latest
-
-docker tag ddos:latest shaadowsky/ddos:latest
-запушить образ
-
-docker push shaadowsky/ddos:latest
+docker tag YOURIMAGE YOUR_DOCKERHUB_NAME/YOURIMAGE
+docker push YOUR_DOCKERHUB_NAME/YOURIMAGE
+```
